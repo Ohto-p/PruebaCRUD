@@ -1,36 +1,35 @@
 package com.indra.curso.controller;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 
-@Controller 
+@RestController 
+@RequestMapping(value="/Home")
 public class requestcontroler {
-	//Http://localhost:8080/GET
-	@RequestMapping(value="/get", method = RequestMethod.GET)
-	@ResponseBody
-	public String get() {
-		return "Aqui leo";
+	//http://localhost:8080/Home/crear
+	@GetMapping("/crear")
+	public String Create() {
+		return "Aqui es donde creo" ;
 	}
 	
-	//Http://localhost:8080/POST
-	@RequestMapping(value="/post", method = RequestMethod.POST)
-	@ResponseBody
-	public void post() {
-		System.out.print("hola con post") ;
+	//http://localhost:8080/Home/leer
+	@PostMapping("/leer")
+	public String Read() {
+		return "Aqui se lee" ;
 	}
-	//Http://localhost:8080/PUT
-	@RequestMapping(value="/put", method = RequestMethod.PUT)
-	@ResponseBody
-	public void put() {
-		System.out.print("Aqui Actualizo") ;
+	
+	//http://localhost:8080/Home/actualizar
+	@GetMapping("/actualizar")
+	public String Update() {
+		return "Aqui se actualiza";
 	}
-	//Http://localhost:8080/DELETE
-	@RequestMapping(value="/delete", method = RequestMethod.DELETE)
-	@ResponseBody
-	public void delete() {
-		System.out.print("Aqui Borro") ;
+	
+	//http://localhost:8080/Home/borrar
+	@GetMapping("/borrar")
+	public String DELETE() {
+		return "Aqui se borra";
 	}
 }
