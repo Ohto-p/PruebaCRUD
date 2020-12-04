@@ -11,7 +11,7 @@ public interface EmployeeServices {
 	
 	public Optional<Employee> findEmployeeById(Long id);
 	
-	public Employee saveEmployee(Employee EmployeeNew);
+	public Employee saveEmployee(Employee employeeNew);
 	
 	public String deleteEmployee(Long id);
 	

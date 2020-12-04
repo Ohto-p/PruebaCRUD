@@ -10,4 +10,6 @@ public interface EmployeeControler {
 	public List<Employee> getEmployee();
 	
 	public Optional <Employee> getEmployeeById(Long id);
+	
+	public Employee addEmployee(Employee employee);
 }

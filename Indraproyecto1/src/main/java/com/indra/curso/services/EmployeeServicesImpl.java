@@ -49,7 +49,7 @@ public class EmployeeServicesImpl implements EmployeeServices {
 		Long num = employeeUpdated.getEmployeeid();
 		if(employeeRepository.findById(num).isPresent()) {
 			Employee employeeToUpdate = new Employee();
-			employeeToUpdate.setEmployeeid(employeeToUpdate.getEmployeeid());
+			employeeToUpdate.setEmployee_id(employeeToUpdate.getEmployeeid());
 			employeeToUpdate.setFirstname(employeeToUpdate.getFirstname());
 			employeeToUpdate.setLastname(employeeToUpdate.getLastname());
 			employeeToUpdate.setEmail(employeeToUpdate.getEmail());

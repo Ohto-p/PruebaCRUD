@@ -4,19 +4,18 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-
-
-
 
 
 @Entity
 @Table(name="Employees")
 public class Employee {
 	@Id
-	@Column(name="EMPLOYEE_ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "EMPLOYEE_ID", nullable = false) 
 	private Long employeeid;
 	
 	@Column(name="FIRST_NAME")
@@ -75,7 +74,7 @@ public class Employee {
  		return employeeid;
  	}
      
-	public void setEmployeeid(Long employeeid) {
+	public void setEmployee_id(Long employeeid) {
  		this.employeeid = employeeid;
  	}
 
