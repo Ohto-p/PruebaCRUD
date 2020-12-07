@@ -33,20 +33,19 @@ public class EmployeeControlerImpl {
 		return employeeService.findEmployeeById(id);
 	}
 
-//---------------------------------------------------------------	FALTA
 	//http://localhost:8080/home/crear
 	@PostMapping("/crear")
 	public Employee addEmployee(Employee employee) {
 			return employeeService.saveEmployee(employee);
 	}
 	
-//----------------------------------------------------------------------- FALTA	
+//-----------------------------------------------------------------------
 	//http://localhost:8080/Home/actualizar
 	@GetMapping("/actualizar")
 	public String Update() {
 		return "Aqui se actualiza";
 	}
-//---------------------------------------------------------------------------	
+//-----------------------------------------------------------------------	
 	//http://localhost:8080/Home/borrar
 	@GetMapping("/borrar/{id}")
 	public String deleteEmployee(@PathVariable Long id) {
