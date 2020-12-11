@@ -4,8 +4,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,9 +12,8 @@ import javax.persistence.Table;
 @Table(name="Employees")
 public class Employee {
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	@Column(name = "EMPLOYEE_ID", nullable = false) 
-	private Long employeeid;
+	@Column(name = "EMPLOYEE_ID") 
+	private Integer employeeid;
 	
 	@Column(name="FIRST_NAME")
 	private String firstname;
@@ -52,7 +49,7 @@ public class Employee {
      public Employee(){}
     
     //Constructor 
-     public Employee(Long employeeid, String firstname, String lastname, String email, String phonenumber, Date hiredate,
+     public Employee(Integer employeeid, String firstname, String lastname, String email, String phonenumber, Date hiredate,
  			String jobId, float salary, String commissionpct, String managerid, String departmentid) {
  		super();
  		this.employeeid = employeeid;
@@ -70,13 +67,13 @@ public class Employee {
 
      
     //Getter and setter
-    public Long getEmployeeid() {
+    public Integer getEmployeeid() {
  		return employeeid;
  	}
-     
-	public void setEmployee_id(Long employeeid) {
- 		this.employeeid = employeeid;
- 	}
+    
+    public void setEmployeeid(Integer employeeid) {
+		this.employeeid = employeeid;
+	}
 
 	public String getFirstname() {
 		return firstname;

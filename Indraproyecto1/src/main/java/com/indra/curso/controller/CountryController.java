@@ -11,8 +11,10 @@ public interface CountryController {
 		public Country addController(Country country);
 		//R
 		public List<Country> getCountries();
-		//U
 		public Optional<Country> FindById(String countryid );
+		//U
+		public String updateCountry(Country countryupdate);
 		//D
+		public String deleteCountry(String countryid);
 		
 }

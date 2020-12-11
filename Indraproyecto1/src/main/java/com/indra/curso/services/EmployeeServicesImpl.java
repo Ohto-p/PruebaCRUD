@@ -20,22 +20,18 @@ public class EmployeeServicesImpl implements EmployeeServices {
 	}
 	
 	@Override
-	public Optional<Employee> findEmployeeById(Long id){
+	public Optional<Employee> findEmployeeById(Integer id){
 		Optional<Employee> employee = employeeRepository.findById(id);
 		return  employee;
 	}
 	
 	@Override
 	public Employee saveEmployee(Employee employeeNew) {
-		
-		if(employeeNew != null) {
-			return employeeRepository.save(employeeNew);
-		}
-		return new Employee();
+		return employeeRepository.save(employeeNew);
 	}
 	
-	@Override
-	public String deleteEmployee(Long id) {
+	@Override     //revisar la tabla de job_History para datos relacionados 
+	public String deleteEmployee(Integer id) {
 		if(employeeRepository.findById(id).isPresent()) {
 			employeeRepository.deleteById(id);
 			return "Empleado elimidado correctamente.";
@@ -46,20 +42,21 @@ public class EmployeeServicesImpl implements EmployeeServices {
 	@Override 
 	public String updateEmployee(Employee employeeUpdated) {
 		
-		Long num = employeeUpdated.getEmployeeid();
+		Integer num = employeeUpdated.getEmployeeid();
 		if(employeeRepository.findById(num).isPresent()) {
 			Employee employeeToUpdate = new Employee();
-			employeeToUpdate.setEmployee_id(employeeToUpdate.getEmployeeid());
-			employeeToUpdate.setFirstname(employeeToUpdate.getFirstname());
-			employeeToUpdate.setLastname(employeeToUpdate.getLastname());
-			employeeToUpdate.setEmail(employeeToUpdate.getEmail());
-			employeeToUpdate.setPhonenumber(employeeToUpdate.getPhonenumber());
-			employeeToUpdate.setHiredate(employeeToUpdate.getHiredate());
-			employeeToUpdate.setJobId(employeeToUpdate.getJobId());
-			employeeToUpdate.setSalary(employeeToUpdate.getSalary());
-			employeeToUpdate.setCommissionpct(employeeToUpdate.getCommissionpct());
-			employeeToUpdate.setManagerid(employeeToUpdate.getManagerid());
-			employeeToUpdate.setDepartmentid(employeeToUpdate.getDepartmentid());
+			employeeToUpdate.setEmployeeid(employeeUpdated.getEmployeeid());
+			employeeToUpdate.setFirstname(employeeUpdated.getFirstname());
+			employeeToUpdate.setLastname(employeeUpdated.getLastname());
+			employeeToUpdate.setEmail(employeeUpdated.getEmail());
+			employeeToUpdate.setPhonenumber(employeeUpdated.getPhonenumber());
+			employeeToUpdate.setHiredate(employeeUpdated.getHiredate());
+			employeeToUpdate.setJobId(employeeUpdated.getJobId());
+			employeeToUpdate.setSalary(employeeUpdated.getSalary());
+			employeeToUpdate.setCommissionpct(employeeUpdated.getCommissionpct());
+			employeeToUpdate.setManagerid(employeeUpdated.getManagerid());
+			employeeToUpdate.setDepartmentid(employeeUpdated.getDepartmentid());
+			employeeRepository.save(employeeToUpdate);
 			return "Empleado modificado";
 		}
 		return "!Error al modificar el Empleado";

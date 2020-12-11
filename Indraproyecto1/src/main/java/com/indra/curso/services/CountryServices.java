@@ -14,6 +14,8 @@ public interface CountryServices {
 	public Optional<Country> findCountryById(String countryid);
 	
 	//U
+	public String updateCountry(Country countryupdate);
 	//D
+	public String deleteCountry(String countryid);
 	
 }

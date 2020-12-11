@@ -9,11 +9,11 @@ public interface EmployeeServices {
 		
 	public List<Employee> findAllEmployees();
 	
-	public Optional<Employee> findEmployeeById(Long id);
+	public Optional<Employee> findEmployeeById(Integer id);
 	
 	public Employee saveEmployee(Employee employeeNew);
 	
-	public String deleteEmployee(Long id);
+	public String deleteEmployee(Integer id);
 	
 	public String updateEmployee(Employee EmployeeNew);
 

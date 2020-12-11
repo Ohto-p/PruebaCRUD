@@ -14,18 +14,44 @@ public class CountryServicesImpl implements CountryServices {
 	@Autowired
 	CountryRepository countryRepository;
 	
+	@Override
 	public List<Country> findAllCountries() {
 		return countryRepository.findAll();
 	}
 	
+	@Override
 	public Optional<Country> findCountryById(String countryid){
 		Optional <Country> country = countryRepository.findById(countryid);
 		return country;
 	}
 	
+	@Override
 	public Country saveCountry(Country countryNew) {
 			return countryRepository.save(countryNew);
 	}
-	
+
+	@Override
+	public String deleteCountry(String countryid) {
+		if(countryRepository.findById(countryid).isPresent()) {
+			countryRepository.deleteById(countryid);
+			return "Pais Borrado exitosamente!";
+		}
+		return "El pais no existe!";
+	}
+
+	@Override
+	public String updateCountry(Country countryupdate) {
+		String code = countryupdate.getCountryid();
+		if(countryRepository.findById(code).isPresent()) {
+			Country countryToUpdate = new Country();
+			countryToUpdate.setCountryid(countryupdate.getCountryid());
+			countryToUpdate.setCountryname(countryupdate.getCountryname());
+			countryToUpdate.setRegionid(countryupdate.getRegionid());
+			countryRepository.save(countryToUpdate);
+			return "Pais modificado";
+		}
+		return "Error al modificar el Pais";
+	}
+
 	
 }

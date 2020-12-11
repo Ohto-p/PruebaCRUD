@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import org.springframework.lang.NonNull;
 
 @Entity
-@Table(name ="countries")
+@Table(name ="COUNTRIES")
 public class Country {
 	@Id
 	@Column(name="country_id")
