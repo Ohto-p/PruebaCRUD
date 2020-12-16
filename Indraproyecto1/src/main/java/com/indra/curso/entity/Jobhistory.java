@@ -11,17 +11,18 @@ import javax.persistence.Table;
 @Table(name = "job_history")
 public class Jobhistory {
 	
+	@Id
 	@Column(name="employee_id")
 	Integer employeeid;
 	
-	@Id
+	
 	@Column(name="start_date")
 	Date startdate;
 	
 	@Column(name="end_date")
 	Date enddate;
 	
-	@Column(name="jobid")
+	@Column(name="job_id")
 	String jobid;
 	
 	@Column(name="department_id")

@@ -24,6 +24,7 @@ public class LocationControllerImpl {
 	//C
 	@PostMapping("/add")
 	public String addLocation(Location locationNew) {
+		System.out.println(locationNew);
 		return locationServices.addLocation(locationNew);
 	}
 	//R

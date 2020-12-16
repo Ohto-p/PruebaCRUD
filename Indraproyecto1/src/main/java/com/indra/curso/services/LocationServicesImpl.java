@@ -17,6 +17,7 @@ public class LocationServicesImpl implements LocationServices {
 	
 	//C
 	public String addLocation(Location locationNew) {
+		locationNew.getCountry().getCountryid();
 		locationRepository.save(locationNew);
 		return "Locacion agregada correctamente";
 	}
